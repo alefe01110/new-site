@@ -1,0 +1,20 @@
+LEFFE.DSR — PUBLICAÇÃO NA VERCEL
+
+A publicação verificada retornou 404 para todas as imagens do portfólio,
+para o logo e para a tabela. Os arquivos CSS e JavaScript carregaram.
+
+1. Extraia LEFFE-DSR-vercel.zip.
+2. No repositório ligado à Vercel, coloque TODOS os arquivos extraídos
+   na raiz do projeto, incluindo a pasta assets e todas as subpastas.
+   Não envie apenas os arquivos HTML, CSS e JavaScript.
+3. Preserve a estrutura: index.html e assets devem estar lado a lado.
+   Exemplo: assets/portfolio/tolentino.jpg.
+4. Confirme as alterações no repositório e aguarde a nova publicação.
+   Se usar upload ou CLI, envie a pasta extraída completa.
+5. Após publicar, abra:
+   https://sitelffe.vercel.app/assets/portfolio/tolentino.jpg
+   Esse endereço deve exibir a arte da pizza.
+
+Este pacote contém os arquivos diretamente na raiz do ZIP.
+Não precisa de npm ou compilação. A configuração vercel.json identifica
+este projeto como um site estático e usa a pasta raiz como saída.

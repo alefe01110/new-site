@@ -1,0 +1,59 @@
+/* A pure-black canvas makes the Matos artwork and its surrounding frame one surface. */
+.work-card[data-art="matos-barbearia"] .work-image{background:#000}
+.art-dialog.matos-art #art-dialog-content{background:#000}
+.panorama-playback{font-size:13px!important}
+.reading-progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;z-index:60;pointer-events:none}
+.hero-copy h1 .headline-line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+.hero-copy h1 .headline-line>span{display:block}
+.hero-copy h1 .headline-line:last-child>span{display:flex;align-items:center}
+.hero-copy h1 .headline-line .hero-asterisk{display:inline-block}
+.hero-copy h1 .headline-line .outline-word{display:inline}
+.motion-section h2 em{position:relative;display:inline-block}
+.motion-section h2 em:after{content:'';position:absolute;left:0;bottom:-.07em;width:100%;height:3px;background:currentColor;transform:scaleX(0);transform-origin:left;opacity:.65;transition:transform .85s cubic-bezier(.2,.7,.2,1) .3s}
+.motion-section.in-view h2 em:after{transform:scaleX(1)}
+
+ html[data-motion="on"] .hero-copy h1 .headline-line>span{animation:headline-rise .9s cubic-bezier(.16,1,.3,1) both}
+ html[data-motion="on"] .hero-copy h1 .headline-line:nth-child(2)>span{animation-delay:.14s}
+ html[data-motion="on"] .hero-copy h1 .headline-line:nth-child(3)>span{animation-delay:.28s}
+ html[data-motion="on"] .hero-copy>p{animation:intro-rise .85s ease both .45s}
+ html[data-motion="on"] .hero-copy>.button{animation:intro-rise .85s ease both .6s}
+ html[data-motion="on"] .hero-asterisk{animation:turn 12s linear infinite}
+ html[data-motion="on"] .poster-front{animation:poster-drift-front 6s ease-in-out infinite}
+ html[data-motion="on"] .poster-back{animation:poster-drift-back 7s ease-in-out infinite}
+ html[data-motion="on"] .floating-tag{animation:tag-drift 4.6s ease-in-out infinite}
+ html[data-motion="on"] .brand-stage:before{content:'';position:absolute;inset:8% 5%;border-radius:50%;background:radial-gradient(ellipse,#d9353538,transparent 68%);filter:blur(12px);animation:halo-drift 8s ease-in-out infinite;z-index:-1;pointer-events:none}
+ html[data-motion="on"] .creative-orbit{animation:orbit-turn 14s linear infinite}
+ html[data-motion="on"] .hero-bottom a>span,html[data-motion="on"] .panorama-hint>span{display:inline-block;animation:direction-hint 2.4s ease-in-out infinite}
+ html[data-motion="on"] .hero-bottom a>span{animation-name:down-hint}
+ html[data-motion="on"] .motion-section .motion-item{opacity:0;translate:0 38px;transition:opacity .8s ease,translate .9s cubic-bezier(.16,1,.3,1);transition-delay:var(--motion-delay,0ms)}
+ html[data-motion="on"] .motion-section.in-view .motion-item{opacity:1;translate:0 0}
+ html[data-motion="on"] .plan-grid{animation:plan-arrive .45s ease both}
+ html[data-motion="on"] .motion-section:not(.in-view) .creative-orbit{animation-play-state:paused}
+
+@keyframes headline-rise{from{transform:translateY(110%) rotate(3deg);opacity:0}to{transform:translateY(0) rotate(0);opacity:1}}
+@keyframes intro-rise{from{transform:translateY(24px);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes poster-drift-front{0%,100%{transform:rotate(10deg) translateY(0)}50%{transform:rotate(5deg) translateY(-25px)}}
+@keyframes poster-drift-back{0%,100%{transform:rotate(-12deg) translateY(0)}50%{transform:rotate(-7deg) translateY(19px)}}
+@keyframes tag-drift{0%,100%{transform:rotate(-4deg) translateY(0)}50%{transform:rotate(1deg) translateY(-15px)}}
+@keyframes halo-drift{0%,100%{transform:translate(-6%,4%) scale(.9);opacity:.6}50%{transform:translate(9%,-6%) scale(1.15);opacity:1}}
+@keyframes orbit-turn{0%{transform:rotate(0) scale(.9)}50%{transform:rotate(180deg) scale(1.08)}100%{transform:rotate(360deg) scale(.9)}}
+@keyframes direction-hint{0%,100%{transform:translateX(-5px)}50%{transform:translateX(5px)}}
+@keyframes down-hint{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
+@keyframes plan-arrive{from{opacity:.3;translate:0 14px}to{opacity:1;translate:0 0}}
+@media(max-width:760px){
+ .panorama-viewport{height:clamp(175px,61vw,280px)}
+ .panorama-dialog .panorama-viewport{height:min(52dvh,calc((96vw - 32px)*.78))}
+ .panorama-toolbar{gap:9px}.panorama-hint{font-size:6.5px;gap:5px}.panorama-controls{gap:4px}.panorama-controls button{width:32px;height:34px}
+ .hero-copy h1 .headline-line:last-child>span{align-items:center}
+ .hero-copy h1 .headline-line .hero-asterisk{margin-left:25px}
+}
+
+
+.hero-top .small-label{display:none}.motion-toggle{background:transparent;color:#d6c4ba;border:1px solid #74534a;padding:8px 11px;font-size:9px;letter-spacing:.4px;white-space:nowrap}.motion-toggle:hover{border-color:var(--red);color:white}.motion-toggle[aria-pressed="false"]{border-color:var(--red);color:#ffb1a5}.hero-top{flex-wrap:wrap}
+html[data-motion="off"]{scroll-behavior:auto}html[data-motion="off"] *,html[data-motion="off"] *:before,html[data-motion="off"] *:after{animation:none!important;transition:none!important}html[data-motion="off"] .motion-item,html.js[data-motion="off"] .reveal{opacity:1;translate:none;transform:none}html[data-motion="off"] .ink-layer,html[data-motion="off"] .reading-progress{display:none}
+@media(prefers-reduced-motion:reduce){html:not([data-motion="on"]){scroll-behavior:auto}html:not([data-motion="on"]) *,html:not([data-motion="on"]) *:before,html:not([data-motion="on"]) *:after{animation:none!important;transition:none!important}}
+@media(max-width:760px){.motion-toggle{font-size:8px;padding:7px 9px}.hero-top{gap:13px}.hero-top>.eyebrow{width:100%}}
+
+/* Final studio content and automatic motion. */
+.hero-top .small-label{display:block}
+@media(max-width:760px){.hero-top .small-label{display:none}.hero-top>.eyebrow{width:auto}}
